@@ -1,0 +1,279 @@
+:root {
+  --blanco: #FFFFFF;
+  --oscuro: #000000;
+  --gris: #ededed;
+  --primario: #4b5bd2;
+  --secundario: #1982c4;
+  --extra: #4267ac;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  /*scroll-snap-type: y mandatory;*/
+}
+
+/* Scroll snap */
+/*.servicios,
+.navegacion-principal,
+.formulario {
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}*/
+
+*, *:before, *:after {    /*box model*/
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 16px; /* 1 rem = 10px */
+  font-family: 'Roboto Mono', monospace;
+  /*background-image: linear-gradient(to top, #DFE9F3 5%, var(--blanco) 100%);  /*para utilizar degradado debes utilizar bg img*/
+  /*background: -moz-linear-gradient(-45deg, rgba(147,206,222,1) 0%, rgba(123,133,224,1) 53%, rgba(73,165,191,1) 100%);*/
+  background: -webkit-linear-gradient(-45deg, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 48%, rgba(123,133,224,1) 98%, rgba(123,133,224,1) 100%);
+}
+
+.sombra {           /*Sombra de contenedor*/
+  -webkit-box-shadow: 10px 10px 16px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 16px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 16px 0px rgba(0,0,0,0.75);
+  background-color: var(--gris);
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+
+h1 {
+  font-size: 3.8rem;
+  color: var(--blanco);
+  margin: 0;
+  padding: 1rem;
+  font-family: 'Roboto Mono', monospace;
+}
+
+h2 {
+  font-size: 2.8rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+.titulo span {
+  font-size: 2rem;
+}
+
+.contenedor {
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+.boton {        /*Boton reutilizable*/
+  background-color: var(--extra);
+  color: var(--blanco);
+  padding: 1rem 3rem;
+  margin-top: 5rem;
+  font-size: 2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: .5rem;
+  width: 90%;
+  text-align: center;
+  border: none;
+}
+
+@media (min-width: 480px) {         /*media query reutilizable Responsive*/
+    .boton {
+      width: auto;
+    }
+}
+
+.boton:hover {
+  cursor: pointer;
+}
+
+/*Utilidades*/
+.w-sm-100 {
+  width: 100%;
+}
+
+@media (min-width: 480px) {
+  .w-sm-100 {
+    width: auto;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.alinear-derecha {
+  justify-content: flex-end;
+}
+
+.nav-bg {
+  /*background: -moz-linear-gradient(-45deg, rgba(147,206,222,1) 0%, rgba(123,133,224,1) 53%, rgba(73,165,191,1) 100%);*/ /*NO FUNCIONA EN MICROSOFT EDGE*/
+  background: -webkit-linear-gradient(-45deg, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 48%, rgba(123,133,224,1) 98%, rgba(123,133,224,1) 100%);
+}
+
+.navegacion-principal {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 480px) {
+  .navegacion-principal {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.navegacion-principal a {
+  display: block;
+  text-align: center;
+  padding: 1rem;
+  color: var(--blanco);
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.navegacion-principal a:hover {
+  background-color: var(--primario);
+  color: var(--oscuro);
+}
+
+.hero {
+  background-image: url(../img/hero.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 450px; /*Importante utilizar un tamaño de imagen para no amontonar el contenido con position*/
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.contenido-hero {
+  position: absolute;
+  background-color: rgba(0,0,0,0.7);
+  width: 100%;      /* Esto hará que tome todo el espacio */
+  height: 100%;     /* sin necesidad de utilizar coordenadas */
+ 
+  display: flex;              /*Contenido centrado vertical y horizontalmente*/
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenido-hero h2,
+.contenido-hero p {
+  color: var(--blanco);
+}
+
+.ubicacion {
+  display: flex;
+  align-items: flex-end;
+}
+
+/*Servicios*/
+@media (min-width: 700px) {
+  .servicios {
+    display: grid;    /*que groso que sos grid*/
+    grid-template-columns: repeat(3, 1fr);  /*Crea columnas con el valor definido o porcentaje*/ /*1fr = 1 fracción del espacio*/
+    column-gap: 3rem; /*separacion de columnas*/
+    
+    /*grid-template-columns: 33.3% 33.3% 33.3%;*/ 
+    /*grid: Xrem Xrem / 35rem 35rem 35rem;  <-- Esto es lo mismo, primero se colocan las medidas de row*/
+  }
+}
+
+.servicio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.servicio h3 {
+  color: var(--secundario);
+  font-weight: normal;
+}
+
+.servicio p {
+  line-height: 1.5;
+  text-align: center;
+}
+
+.servicio .iconos {
+  height: 15rem;
+  width: 15rem;
+  background-color: var(--extra);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Contacto*/
+.formulario {
+  background-color: var(--secundario);
+  width: min(60rem, 100%); /*Utilizar el valor más pequeño*/ /*Compara entre en valor del 100% contra el valor que le demos*/
+  margin: 0 auto; /*Utilizarlo cuando sea un elemento de tipo block o su padre no tenga display flex*/
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.formulario fieldset {
+  border: none;
+}
+
+.formulario legend {
+  margin: 0 auto;   /*Utilicé 2 alineados porque en Firefox no funcionó con text align*/
+  text-align: center;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--blanco);
+}
+
+@media (min-width: 700px) {
+  .contenedor-campos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto 20rem;
+    column-gap: 1rem;
+  }
+  .campo:nth-child(3),
+  .campo:nth-child(4) {       /*Al tener la misma clase campo con nth seleccionas cual elemento elegir*/
+    grid-column: 1 / 3;       /*El campo se extenderá desde la columna 1 a la 3*/ /*También puede servir para recolocar dentro de la cuadricula*/
+  }
+}
+
+.campo {
+  margin-bottom: 1rem;
+}
+
+.campo label {
+  color: var(--blanco);
+  font-weight: bold;
+  margin-bottom: .5rem;
+  display: block;   /*cada label toma todo el espacio disponible*/
+}
+
+.input-text {
+  width: 100%;  /*cada campo toma el espacio disponible en el ancho*/
+  border: none;
+  padding: 1.5rem;    /*aumenta el grosor del input*/
+  border-radius: .5rem;
+}
+
+.campo textarea {
+  height: 20rem;
+}
+
+/*Footer*/
+
+.footer {
+  text-align: center;
+}
